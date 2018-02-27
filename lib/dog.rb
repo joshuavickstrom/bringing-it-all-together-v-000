@@ -67,6 +67,5 @@ class Dog
     SQL
 
     DB[:conn].execute(sql, id).map { |array| self.new_from_db(array) }
-    binding.pry
   end
 end
