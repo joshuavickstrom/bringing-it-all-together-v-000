@@ -66,7 +66,7 @@ class Dog
       WHERE id =?
     SQL
 
-    DB[:conn].execute(sql).map { |array| self.new_from_db(array)  }
+    DB[:conn].execute(sql)
     binding.pry
   end
 end
