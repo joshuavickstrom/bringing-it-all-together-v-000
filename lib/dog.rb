@@ -66,5 +66,6 @@ class Dog
       WHERE id =?
     SQL
     DB[:conn].execute(sql, self.id)
+    binding.pry
   end
 end
