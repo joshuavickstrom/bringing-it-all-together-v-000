@@ -9,3 +9,4 @@ def initialize(id: id, name: name, breed: breed)
   @name = name
   @breed = breed
 end
+end
