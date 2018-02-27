@@ -75,8 +75,9 @@ class Dog
       FROM dogs
       WHERE name =?, breed =?
     SQL
+    binding.pry
     if DB[:conn].execute(sql, name, breed).map { |array| self.new_from_db(array) }.first
-      ???
+      self.find_by_id
     else
       self.create
     end
