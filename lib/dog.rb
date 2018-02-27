@@ -26,7 +26,7 @@ class Dog
     DB[:conn].execute(sql)
   end
 
-  def self.new_from_db(array) 
+  def self.new_from_db(array)
     new_dog = Dog.new(array[0], array[1], array[2])
   end
 end
