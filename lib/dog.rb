@@ -66,7 +66,8 @@ class Dog
       WHERE id =?
     SQL
 
-    DB[:conn].execute(sql, id).map { |array| self.new_from_db(array) }
+    DB[:conn].execute(sql, id).map { |array| self.new_from_db(array) }.first
+    
   end
-  self
+  
 end
