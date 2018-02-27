@@ -75,7 +75,7 @@ class Dog
       FROM dogs
       WHERE name =?, breed =?
     SQL
-    if DB[:conn].execute(sql).map { |array| self.new_from_db(array) }.first
+    if DB[:conn].execute(sql, name, breed).map { |array| self.new_from_db(array) }.first
       ???
     else
       self.create
