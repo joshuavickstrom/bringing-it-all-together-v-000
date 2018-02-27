@@ -66,6 +66,6 @@ class Dog
       WHERE id =?
     SQL
 
-    DB[:conn].execute(sql, self.id)
+    DB[:conn].execute(sql, self.name, self.id)
   end
 end
