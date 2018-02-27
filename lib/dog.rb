@@ -65,6 +65,7 @@ class Dog
       FROM dogs
       WHERE id =?
     SQL
+    
     DB[:conn].execute(sql, self.id)
     binding.pry
   end
