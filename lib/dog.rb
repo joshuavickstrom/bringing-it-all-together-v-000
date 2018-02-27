@@ -78,7 +78,7 @@ class Dog
     if DB[:conn].execute(sql, self.name, self.breed).map { |array| self.new_from_db(array) }.first
       self.find_by_id(id)
     else
-      self.create(name, breed)
+      self.create
     end
   end
 end
