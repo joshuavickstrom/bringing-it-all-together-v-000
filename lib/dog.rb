@@ -40,14 +40,14 @@ class Dog
     self
   end
 
-  # def update
-  #   sql = <<-SQL
-  #   UPDATE dogs
-  #   SET name =?, breed =?
-  #   WHERE id =?
-  #   SQL
-  #   DB[:conn].execute(sql, self.name, self.breed, self.id)
-  # end
+  def update
+    sql = <<-SQL
+    UPDATE dogs
+    SET name =?, breed =?
+    WHERE id =?
+    SQL
+    DB[:conn].execute(sql, self.name, self.breed, self.id)
+  end
 
   def self.new_from_db(array)
     new_dog = Dog.new(id: array[0], name: array[1], breed: array[2])
@@ -69,16 +69,16 @@ class Dog
     DB[:conn].execute(sql, id).map { |array| self.new_from_db(array) }.first
   end
 
-  def self.find_or_create_by(name:, breed:)
-    sql = <<-SQL
-      SELECT *
-      FROM dogs
-      WHERE name =?, breed =?
-    SQL
-    if DB[:conn].execute(sql).map { |array| self.new_from_db(array) }.first
-      self.find_by_id(id)
-    else
-      self.create
-    end
-  end
+  # def self.find_or_create_by(name:, breed:)
+  #   sql = <<-SQL
+  #     SELECT *
+  #     FROM dogs
+  #     WHERE name =?, breed =?
+  #   SQL
+  #   if DB[:conn].execute(sql).map { |array| self.new_from_db(array) }.first
+  #     self.find_by_id(id)
+  #   else
+  #     self.create
+  #   end
+  # end
 end
