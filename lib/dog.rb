@@ -68,4 +68,5 @@ class Dog
 
     DB[:conn].execute(sql, id).map { |array| self.new_from_db(array) }
   end
+  self
 end
