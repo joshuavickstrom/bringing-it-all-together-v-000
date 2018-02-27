@@ -53,8 +53,8 @@ class Dog
     new_dog = Dog.new(array[0], array[1], array[2])
   end
 
-  def self.create(attributes)
-    new_dog = Dog.new(attributes[0], attributes[1], attributes[2])
+  def self.create(name:, breed:)
+    new_dog = Dog.new(name: name, breed: breed)
     new_dog.save
     new_dog
   end
