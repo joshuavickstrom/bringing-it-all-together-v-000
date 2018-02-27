@@ -73,7 +73,7 @@ class Dog
     sql = <<-SQL
       SELECT *
       FROM dogs
-      WHERE name =?, breed =?
+      WHERE name =? AND breed =?
     SQL
     binding.pry
     if DB[:conn].execute(sql, name, breed).map { |array| self.new_from_db(array) }.first
