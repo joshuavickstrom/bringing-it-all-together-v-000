@@ -70,14 +70,15 @@ class Dog
   end
 
   def self.find_or_create_by(name:, breed:)
-    if DB[:conn].
-      self.create
-        sql = <<-SQL
-          
-
-        SQL
-
-        DB[:conn].execute(sql)
+    sql = <<-SQL
+      SELECT *
+      FROM dogs
+      WHERE name =?, breed =?
+    SQL
+    if DB[:conn].execute(sql, self.name, self.breed).map { |array| self.new_from_db(array) }.first
+      self.find_by_id(id)
+    else
+      self.create(name:, breed:)
+    end
   end
-
 end
