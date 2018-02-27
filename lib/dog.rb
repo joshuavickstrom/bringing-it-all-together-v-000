@@ -69,13 +69,15 @@ class Dog
     DB[:conn].execute(sql, id).map { |array| self.new_from_db(array) }.first
   end
 
-  def self.find_or_create_by(??)
-    sql = <<-SQL 
-      
-      
-    SQL
-    
-    DB[:conn].execute(sql)
+  def self.find_or_create_by(name:, breed:)
+    if DB[:conn].
+      self.create
+        sql = <<-SQL
+          
+
+        SQL
+
+        DB[:conn].execute(sql)
   end
 
 end
